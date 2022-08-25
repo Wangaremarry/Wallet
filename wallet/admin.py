@@ -3,24 +3,24 @@ from.models import Account, Customer,Currency, Notification, Receipt, Reward, Tr
 
 class CustomerAdmin(admin.ModelAdmin):
     list_display=("firstname","lastname","email","gender","address")
-    search_fields=("fistname","lastname","gender","address")
+    search_fields=("fistname","lastname","gender","address","email")
 admin.site.register(Customer,CustomerAdmin)
 class CurrencyAdmin(admin.ModelAdmin):
     list_display=("amount","symbol","country_of_origin")
-    search_fields=("amount","symbol")
+    search_fields=("amount","country_of_origin")
 admin.site.register(Currency,CurrencyAdmin)
 class WalletAdmin(admin.ModelAdmin):
     list_display=('pin','status','date','amount','customer','balance')
-    search_fields=("amount",'pin')
+    search_fields=('status','date','amount','balance')
 admin.site.register(Wallet,WalletAdmin)
 
 class AccountAdmin(admin.ModelAdmin):
     list_display=('account_name','account_type','balance','wallet')
-    search_fields=("account_name",'account_type')
+    search_fields=('account_name','balance','wallet')
 admin.site.register(Account,AccountAdmin)
 class TransactionAdmin(admin.ModelAdmin):
     list_display=('wallet','transaction_amount','transaction_type','transaction_charge')
-    search_fields=("destination_account",'wallet')
+    search_fields=('wallet','transaction_amount','transaction_charge')
 admin.site.register(Transaction,TransactionAdmin)
 class CardAdmin(admin.ModelAdmin):
     list_display=('date_issued','card_name','card_type')
