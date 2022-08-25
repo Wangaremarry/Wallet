@@ -4,6 +4,12 @@ from.models import Account, Customer,Currency, Notification, Receipt, Reward, Tr
 class CustomerAdmin(admin.ModelAdmin):
     list_display=("firstname","lastname","email",)
     search_fields=("fistname","lastname")
+
+class WalletAdmin(admin.ModelAdmin):
+    list_display =("balance","customer","currency")
+    search_fields = ("balance","customer")
+    
+admin.site.register(Wallet,WalletAdmin)
 admin.site.register(Customer)
 admin.site.register(Currency)
 admin.site.register(Wallet)

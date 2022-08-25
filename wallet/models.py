@@ -1,5 +1,4 @@
 from locale import currency
-import mailcap
 from operator import countOf
 from symtable import Symbol
 from django.db import models
